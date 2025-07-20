@@ -14,7 +14,10 @@ st.set_page_config(
 )
 
 # Load model and encoders
-model = joblib.load('model/salary_model.pkl')
+import os
+model_path = os.path.join(os.path.dirname(__file__), 'model', 'salary_model.pkl')
+model = joblib.load(model_path)
+
 label_encoders = joblib.load('model/label_encoders.pkl')
 report = joblib.load('model/evaluation_report.pkl')
 conf_matrix = joblib.load('model/confusion_matrix.pkl')
