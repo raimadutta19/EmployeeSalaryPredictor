@@ -18,7 +18,10 @@ import os
 model_path = os.path.join(os.path.dirname(__file__), 'model', 'salary_model.pkl')
 model = joblib.load(model_path)
 
-label_encoders = joblib.load('model/label_encoders.pkl')
+import os
+label_encoder_path = os.path.join(os.path.dirname(__file__), 'model', 'label_encoders.pkl')
+label_encoders = joblib.load(label_encoder_path)
+
 report = joblib.load('model/evaluation_report.pkl')
 conf_matrix = joblib.load('model/confusion_matrix.pkl')
 
