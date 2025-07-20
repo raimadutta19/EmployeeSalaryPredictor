@@ -15,15 +15,18 @@ st.set_page_config(
 
 # Load model and encoders
 import os
-model_path = os.path.join(os.path.dirname(__file__), 'model', 'salary_model.pkl')
+
+base_dir = os.path.dirname(__file__)
+model_path = os.path.join(base_dir, 'model', 'salary_model.pkl')
+encoder_path = os.path.join(base_dir, 'model', 'label_encoders.pkl')
+report_path = os.path.join(base_dir, 'model', 'evaluation_report.pkl')
+cm_path = os.path.join(base_dir, 'model', 'confusion_matrix.pkl')
+
 model = joblib.load(model_path)
+label_encoders = joblib.load(encoder_path)
+evaluation_report = joblib.load(report_path)
+confusion_matrix = joblib.load(cm_path)
 
-import os
-label_encoder_path = os.path.join(os.path.dirname(__file__), 'model', 'label_encoders.pkl')
-label_encoders = joblib.load(label_encoder_path)
-
-report = joblib.load('model/evaluation_report.pkl')
-conf_matrix = joblib.load('model/confusion_matrix.pkl')
 
 st.title("💼 Employee Salary Predictor")
 st.markdown("Predict whether an individual's income is **>50K** or **<=50K** using ML.")
