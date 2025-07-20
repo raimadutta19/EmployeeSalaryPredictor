@@ -80,13 +80,13 @@ if st.button("Predict Income"):
 
 # --- METRICS SECTION ---
 with st.expander("📊 View Model Evaluation Metrics"):
-    st.write(f"**Accuracy**: {round(report['accuracy'] * 100, 2)}%")
-    st.write(f"**Precision (>50K)**: {round(report['1']['precision'] * 100, 2)}%")
-    st.write(f"**Recall (>50K)**: {round(report['1']['recall'] * 100, 2)}%")
-    st.write(f"**F1-Score (>50K)**: {round(report['1']['f1-score'] * 100, 2)}%")
+    st.write(f"**Accuracy**: {round(evaluation_report['accuracy'] * 100, 2)}%")
+    st.write(f"**Precision (>50K)**: {round(evaluation_report['1']['precision'] * 100, 2)}%")
+    st.write(f"**Recall (>50K)**: {round(evaluation_report['1']['recall'] * 100, 2)}%")
+    st.write(f"**F1-Score (>50K)**: {round(evaluation_report['1']['f1-score'] * 100, 2)}%")
 
     fig, ax = plt.subplots()
-    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues',
+    sns.heatmap(confusion_matrix, annot=True, fmt='d', cmap='Blues',
                 xticklabels=['<=50K', '>50K'], yticklabels=['<=50K', '>50K'])
     ax.set_xlabel('Predicted')
     ax.set_ylabel('Actual')
